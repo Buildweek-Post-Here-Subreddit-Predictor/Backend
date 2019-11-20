@@ -3,7 +3,7 @@ const server = require('../api/server.js');
 
 describe('auth-router.js', () => {
 
-    describe('POST /register',() =>{
+    describe('POST api/register',() =>{
         it('should return status 200', () => {
       let user = {"username": "millare", "password": "password123"};
       return request(server)
@@ -28,7 +28,7 @@ describe('auth-router.js', () => {
   })
 })
 
-describe('POST /login', () => {
+describe('POST api/login', () => {
     it('should return code 200 if user is validated', () => {
       let credentials = {"username": "millare", "password": "password123"};
       return request(server)
