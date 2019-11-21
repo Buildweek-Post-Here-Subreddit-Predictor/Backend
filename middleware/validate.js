@@ -1,4 +1,4 @@
-const db = require("../database/dbconfig.js");
+const db = require("../database/migrations/dbConfig.js");
 
 
 const validateBody = (req, res, next) => {

@@ -1,26 +1,46 @@
+// Update with your config settings.
+require("dotenv").config();
 module.exports = {
+
   development: {
     client: 'sqlite3',
-    connection: { filename: './database/auth.db3' },
-    useNullAsDefault: true,
-    migrations: {
-      directory: './database/migrations',
-      tableName: 'dbmigrations',
-    },
-    seeds: { directory: './database/seeds' },
+    connection: {
+      filename: './dev.sqlite3'
+    }
   },
 
-testing: {
+  staging: {
     client: 'sqlite3',
     connection: {
-      filename: './database/test.db3',
+      database: 'my_db',
+      user:     'username',
+      password: 'password'
     },
-    useNullAsDefault: true,
+    pool: {
+      min: 2,
+      max: 10
+    },
     migrations: {
-      directory: './data/migrations',
+      tableName: 'knex_migrations'
+    }
+  },
+
+  production: {
+    client: 'sqlite3',
+    connection: {
+      filename: './database/migrations/dev.sqlite3',
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+
+      migrations: {
+      directory: './database/migrations',
     },
     seeds: {
-      directory: './data/seeds',
-    },
-  },
+      directory: './database/seeds',
+    }
+  }
+
 };
